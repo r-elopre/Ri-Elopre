@@ -74,6 +74,20 @@ def projects():
             'tech_stack': ['Flask', 'OpenAI Whisper', 'OpenAI GPT-3.5', 'Audio Processing'],
             'status': 'Live',
             'image': 'audio.png'
+        },
+        {
+            'title': 'AiSpeak',
+            'description': 'Production-ready AI-powered voice chatbot that enables natural conversations through both text and voice input, featuring enterprise-level security and modern web technologies.',
+            'url': 'https://aispeak-ri.onrender.com/',
+            'features': [
+                'Voice-to-text conversation with Web Speech API',
+                'Text-to-speech response generation',
+                'Real-time chat with OpenAI GPT-3.5-turbo',
+                'Enterprise-level security with rate limiting'
+            ],
+            'tech_stack': ['Flask 3.1.0', 'OpenAI GPT-3.5', 'Web Speech API', 'Gunicorn'],
+            'status': 'Live',
+            'image': 'aispeak.mp4'
         }
     ]
     
@@ -261,6 +275,54 @@ def audio2summary_detail():
         'live_url': 'https://ri-audio2summary-ai.onrender.com/'
     }
     return render_template('audio2summary_detail.html', project=project)
+
+@app.route('/projects/aispeak')
+def aispeak_detail():
+    """Detailed page for AiSpeak project"""
+    project = {
+        'title': 'AiSpeak',
+        'description': 'Production-ready AI-powered voice chatbot that enables natural conversations through both text and voice input, featuring enterprise-level security and modern web technologies.',
+        'image': 'aispeak.mp4',
+        'user_flow': {
+            '1. Initial Page Load': {
+                'Page Load': 'User visits URL → Flask serves index.html',
+                'Asset Loading': 'CSS/JS assets load → Voice permissions requested',
+                'Initialization': 'Web Speech API setup and ready state'
+            },
+            '2. Text Input Flow': {
+                'Input Processing': 'User types message → Client-side validation → Sanitization',
+                'Server Processing': 'Rate limit check → POST /chat → Server validation',
+                'AI Response': 'OpenAI API → Response sanitization → Display + TTS'
+            },
+            '3. Voice Input Flow': {
+                'Voice Activation': 'User clicks microphone → Web Speech API activates',
+                'Speech Processing': 'Speech-to-text conversion → Auto-populate text field',
+                'Response Flow': 'Follows text input flow for processing'
+            },
+            '4. Error Handling Flow': {
+                'Rate Limiting': 'Rate limit exceeded → 429 response → User notification',
+                'API Failures': 'API failure → 500 response → Error message',
+                'Graceful Degradation': 'Retry timer displayed → Fallback options'
+            }
+        },
+        'tech_details': {
+            'Framework': 'Flask 3.1.0 (Python web framework)',
+            'AI Engine': 'OpenAI GPT-3.5-turbo (API version 1.60.2)',
+            'Environment': 'python-dotenv 1.0.0',
+            'Production Server': 'Gunicorn 21.2.0 (WSGI server)',
+            'Security': 'Custom XSS protection, CSRF, rate limiting',
+            'Data Structures': 'Collections (deque, defaultdict) for rate limiting'
+        },
+        'features': [
+            'Voice-to-text conversation with Web Speech API',
+            'Text-to-speech response generation',
+            'Real-time chat with OpenAI GPT-3.5-turbo',
+            'Enterprise-level security with rate limiting'
+        ],
+        'tech_stack': ['Flask 3.1.0', 'OpenAI GPT-3.5', 'Web Speech API', 'Gunicorn'],
+        'live_url': 'https://aispeak-ri.onrender.com/'
+    }
+    return render_template('aispeak_detail.html', project=project)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

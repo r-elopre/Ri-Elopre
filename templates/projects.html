@@ -14,10 +14,17 @@
                         <div class="col-lg-4">
                             <div class="project-image bg-light d-flex align-items-center justify-content-center" style="height: 300px;">
                                 {% if project.image %}
-                                <img src="{{ url_for('static', filename='images/' + project.image) }}" 
-                                     alt="{{ project.title }} Screenshot" 
-                                     class="img-fluid rounded" 
-                                     style="max-height: 280px; max-width: 100%; object-fit: cover;">
+                                    {% if project.image.endswith('.mp4') %}
+                                    <video controls class="img-fluid rounded" style="max-height: 280px; max-width: 100%; object-fit: cover;">
+                                        <source src="{{ url_for('static', filename='videos/' + project.image) }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    {% else %}
+                                    <img src="{{ url_for('static', filename='images/' + project.image) }}" 
+                                         alt="{{ project.title }} Screenshot" 
+                                         class="img-fluid rounded" 
+                                         style="max-height: 280px; max-width: 100%; object-fit: cover;">
+                                    {% endif %}
                                 {% else %}
                                 <div class="text-center">
                                     <i class="fas fa-robot fa-4x text-muted mb-3"></i>
@@ -49,6 +56,10 @@
                                         </a>
                                         {% elif project.title == 'Audio2Summary AI' %}
                                         <a href="{{ url_for('audio2summary_detail') }}" class="btn btn-outline-primary">
+                                            <i class="fas fa-info-circle me-1"></i>Details
+                                        </a>
+                                        {% elif project.title == 'AiSpeak' %}
+                                        <a href="{{ url_for('aispeak_detail') }}" class="btn btn-outline-primary">
                                             <i class="fas fa-info-circle me-1"></i>Details
                                         </a>
                                         {% endif %}
