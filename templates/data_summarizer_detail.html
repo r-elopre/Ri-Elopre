@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+
+{% block title %}Data Summarizer AI - Project Details{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="project-header py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">{{ project.title }}</h1>
+                <p class="lead mb-4">{{ project.description }}</p>
+                <div class="project-actions">
+                    <a href="https://ri-data-summarizer-ai.onrender.com/" 
+                       class="btn btn-light btn-lg me-3" target="_blank">
+                        <i class="fas fa-external-link-alt me-2"></i>View Live Demo
+                    </a>
+                    <a href="{{ url_for('projects') }}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Projects
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="project-icon">
+                    <i class="fas fa-file-pdf fa-5x text-light opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Overview -->
+<section class="project-overview py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <h2 class="display-5 fw-bold text-center mb-4">User Flow Analysis</h2>
+                <p class="lead text-center text-muted">
+                    Complete walkthrough of the AI-powered document analysis experience
+                </p>
+            </div>
+        </div>
+        
+        {% for step_name, step_data in project.user_flow.items() %}
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="flow-card bg-white rounded shadow-lg p-4">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="flow-header">
+                                <div class="flow-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px;">
+                                    {{ loop.index }}
+                                </div>
+                                <h3 class="h4 mb-3">{{ step_name }}</h3>
+                                <p class="text-muted">{{ step_data.description }}</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="flow-features">
+                                <h5 class="mb-3">Process Details:</h5>
+                                <div class="row">
+                                    {% for feature in step_data.features %}
+                                    <div class="col-md-6 mb-3">
+                                        <div class="feature-item d-flex align-items-start">
+                                            <i class="fas fa-check-circle text-success me-3 mt-1"></i>
+                                            <span>{{ feature }}</span>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Tech Stack -->
+<section class="tech-stack py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Complete Tech Stack Breakdown</h2>
+                <p class="lead text-muted">Advanced technologies powering the AI document analysis</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for category, technologies in project.tech_stack.items() %}
+            <div class="col-lg-6 mb-4">
+                <div class="tech-category bg-white rounded shadow-sm p-4 h-100">
+                    <h5 class="mb-3">
+                        <i class="fas fa-cogs text-primary me-2"></i>
+                        {{ category }}
+                    </h5>
+                    <div class="tech-list">
+                        {% for tech in technologies %}
+                        <span class="badge bg-primary me-2 mb-2" style="font-size: 0.9rem;">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Key Features -->
+<section class="features-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Advanced AI Capabilities</h2>
+                <p class="lead text-muted">What makes this document analyzer special</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="feature-item d-flex">
+                    <div class="feature-icon me-4">
+                        <i class="fas fa-brain fa-2x text-primary"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>RAG Pipeline</h5>
+                        <p class="text-muted mb-0">
+                            Retrieval-Augmented Generation combines document retrieval with AI generation for accurate, contextual answers
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="feature-item d-flex">
+                    <div class="feature-icon me-4">
+                        <i class="fas fa-memory fa-2x text-primary"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Conversation Memory</h5>
+                        <p class="text-muted mb-0">
+                            Maintains context across questions for natural, flowing conversations about document content
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="feature-item d-flex">
+                    <div class="feature-icon me-4">
+                        <i class="fas fa-search fa-2x text-primary"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Vector Search</h5>
+                        <p class="text-muted mb-0">
+                            FAISS-powered similarity search finds the most relevant document sections for each question
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="feature-item d-flex">
+                    <div class="feature-icon me-4">
+                        <i class="fas fa-quote-left fa-2x text-primary"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h5>Source Citations</h5>
+                        <p class="text-muted mb-0">
+                            Every answer includes references to specific PDF pages and sections for verification
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Image -->
+<section class="project-image-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Project Interface</h2>
+                <p class="lead text-muted">Clean, intuitive design for document analysis</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="project-showcase bg-white rounded shadow-lg p-4">
+                    <img src="{{ url_for('static', filename='images/' + project.image) }}" 
+                         alt="{{ project.title }} Interface" 
+                         class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Live Demo -->
+<section class="status-section py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-4">Try It Now!</h2>
+                <p class="lead mb-4">
+                    The Data Summarizer AI is live and ready to analyze your PDF documents
+                </p>
+                <a href="https://ri-data-summarizer-ai.onrender.com/" 
+                   class="btn btn-light btn-lg" target="_blank">
+                    <i class="fas fa-external-link-alt me-2"></i>Launch Data Summarizer AI
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

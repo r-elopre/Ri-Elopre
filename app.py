@@ -44,11 +44,90 @@ def projects():
                 'Career Advisor with actionable guidance'
             ],
             'tech_stack': ['Python', 'AI/ML', 'Web Development'],
-            'status': 'Live'
+            'status': 'Live',
+            'image': 'resume.png'
+        },
+        {
+            'title': 'Data Summarizer AI',
+            'description': 'AI-powered PDF analysis tool that enables users to upload documents and ask intelligent questions about their content.',
+            'url': 'https://ri-data-summarizer-ai.onrender.com/',
+            'features': [
+                'PDF Upload & Processing with 16MB limit',
+                'RAG Pipeline with LangChain integration',
+                'Conversational AI with context retention',
+                'Source citations with page references'
+            ],
+            'tech_stack': ['Flask', 'LangChain', 'OpenAI GPT-3.5', 'FAISS', 'PyPDF'],
+            'status': 'Live',
+            'image': 'data.jpg'
         }
     ]
     
     return render_template('projects.html', projects=projects_data)
+
+@app.route('/projects/data-summarizer')
+def data_summarizer_detail():
+    """Detailed page for Data Summarizer AI project"""
+    project = {
+        'title': 'Data Summarizer AI',
+        'description': 'AI-powered PDF analysis tool that enables users to upload documents and ask intelligent questions about their content using advanced RAG (Retrieval-Augmented Generation) pipeline.',
+        'image': 'data.jpg',
+        'user_flow': {
+            'Step 1: Initial Access': {
+                'description': 'Clean chat interface with upload functionality',
+                'features': [
+                    'User opens the web application',
+                    'Sees a clean chat interface with upload area',
+                    'Receives welcome message: "Hi! Upload a PDF and ask me anything about it."'
+                ]
+            },
+            'Step 2: PDF Upload Process': {
+                'description': 'Advanced PDF processing with AI pipeline',
+                'features': [
+                    'User clicks upload area or drags & drops PDF file',
+                    'Frontend validates file type (PDF only) and size (16MB limit)',
+                    'PyPDF Loader extracts raw text',
+                    'Text Splitter chunks content (1000 chars, 200 overlap)',
+                    'OpenAI Embeddings converts chunks to vectors',
+                    'FAISS Vector Store indexes embeddings for retrieval'
+                ]
+            },
+            'Step 3: Question & Answer Cycle': {
+                'description': 'Intelligent RAG pipeline for contextual answers',
+                'features': [
+                    'User types question in chat input',
+                    'Similarity Search finds 4 most relevant chunks',
+                    'ConversationalRetrievalChain combines question + context',
+                    'GPT-3.5-turbo generates contextual answer',
+                    'Source tracking identifies which PDF sections were used'
+                ]
+            },
+            'Step 4: Conversational Continuity': {
+                'description': 'Memory-enabled conversation system',
+                'features': [
+                    'System maintains conversation memory via ConversationBufferMemory',
+                    'Users can ask follow-up questions with full context retention',
+                    'Each response includes source citations showing PDF page/chunk references'
+                ]
+            },
+            'Step 5: Session Management': {
+                'description': 'Secure and isolated session handling',
+                'features': [
+                    'All data stored in memory (no permanent storage)',
+                    'Session-based isolation (multiple users don\'t interfere)',
+                    'Clean session termination discards all PDF data'
+                ]
+            }
+        },
+        'tech_stack': {
+            'Backend': ['Flask', 'Python'],
+            'AI/ML': ['LangChain', 'OpenAI GPT-3.5-turbo', 'OpenAI Embeddings', 'FAISS'],
+            'Processing': ['PyPDF', 'Text Splitter'],
+            'Management': ['Flask Sessions', 'python-dotenv']
+        }
+    }
+    
+    return render_template('data_summarizer_detail.html', project=project)
 
 @app.route('/projects/career-coach')
 def career_coach_detail():

@@ -13,10 +13,17 @@
                     <div class="row g-0">
                         <div class="col-lg-4">
                             <div class="project-image bg-light d-flex align-items-center justify-content-center" style="height: 300px;">
+                                {% if project.image %}
+                                <img src="{{ url_for('static', filename='images/' + project.image) }}" 
+                                     alt="{{ project.title }} Screenshot" 
+                                     class="img-fluid rounded" 
+                                     style="max-height: 280px; max-width: 100%; object-fit: cover;">
+                                {% else %}
                                 <div class="text-center">
                                     <i class="fas fa-robot fa-4x text-muted mb-3"></i>
                                     <p class="text-muted">AI Project</p>
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="col-lg-8">
@@ -27,12 +34,20 @@
                                         <span class="badge bg-success">{{ project.status }}</span>
                                     </div>
                                     <div class="project-links">
+                                        {% if project.url != '#' %}
                                         <a href="{{ project.url }}" class="btn btn-primary me-2" target="_blank">
                                             <i class="fas fa-external-link-alt me-1"></i>Live Demo
                                         </a>
+                                        {% endif %}
+                                        {% if project.title == 'AI Career Coach' %}
                                         <a href="{{ url_for('career_coach_detail') }}" class="btn btn-outline-primary">
                                             <i class="fas fa-info-circle me-1"></i>Details
                                         </a>
+                                        {% elif project.title == 'Data Summarizer AI' %}
+                                        <a href="{{ url_for('data_summarizer_detail') }}" class="btn btn-outline-primary">
+                                            <i class="fas fa-info-circle me-1"></i>Details
+                                        </a>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 
