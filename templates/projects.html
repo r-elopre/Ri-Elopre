@@ -38,12 +38,22 @@
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <div>
                                         <h3 class="h2 mb-2">{{ project.title }}</h3>
+                                        {% if project.status == 'Live' %}
                                         <span class="badge bg-success">{{ project.status }}</span>
+                                        {% elif project.status == 'GitHub' %}
+                                        <span class="badge bg-dark">{{ project.status }}</span>
+                                        {% else %}
+                                        <span class="badge bg-secondary">{{ project.status }}</span>
+                                        {% endif %}
                                     </div>
                                     <div class="project-links">
                                         {% if project.url != '#' %}
                                         <a href="{{ project.url }}" class="btn btn-primary me-2" target="_blank">
+                                            {% if project.status == 'GitHub' %}
+                                            <i class="fab fa-github me-1"></i>View Code
+                                            {% else %}
                                             <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                                            {% endif %}
                                         </a>
                                         {% endif %}
                                         {% if project.title == 'AI Career Coach' %}
@@ -60,6 +70,10 @@
                                         </a>
                                         {% elif project.title == 'AiSpeak' %}
                                         <a href="{{ url_for('aispeak_detail') }}" class="btn btn-outline-primary">
+                                            <i class="fas fa-info-circle me-1"></i>Details
+                                        </a>
+                                        {% elif project.title == 'AI Image Captioning Tool' %}
+                                        <a href="{{ url_for('image_captioning_detail') }}" class="btn btn-outline-primary">
                                             <i class="fas fa-info-circle me-1"></i>Details
                                         </a>
                                         {% endif %}

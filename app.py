@@ -88,6 +88,20 @@ def projects():
             'tech_stack': ['Flask 3.1.0', 'OpenAI GPT-3.5', 'Web Speech API', 'Gunicorn'],
             'status': 'Live',
             'image': 'aispeak.mp4'
+        },
+        {
+            'title': 'AI Image Captioning Tool',
+            'description': 'Complete AI-powered image captioning tool using BLIP model for generating intelligent captions from uploaded images or real-time camera capture.',
+            'url': 'https://github.com/r-elopre/AI-Image-Captioning-Tool',
+            'features': [
+                'File upload and camera capture support',
+                'BLIP AI model for deep learning captioning',
+                'Real-time image processing with PyTorch',
+                'Download image with AI-generated caption filename'
+            ],
+            'tech_stack': ['Flask', 'BLIP Model', 'PyTorch', 'Transformers', 'Pillow'],
+            'status': 'GitHub',
+            'image': 'caption.png'
         }
     ]
     
@@ -323,6 +337,60 @@ def aispeak_detail():
         'live_url': 'https://aispeak-ri.onrender.com/'
     }
     return render_template('aispeak_detail.html', project=project)
+
+@app.route('/projects/image-captioning')
+def image_captioning_detail():
+    """Detailed page for AI Image Captioning Tool project"""
+    project = {
+        'title': 'AI Image Captioning Tool',
+        'description': 'Complete AI-powered image captioning tool using BLIP model for generating intelligent captions from uploaded images or real-time camera capture with deep learning technology.',
+        'image': 'caption.png',
+        'user_flow': {
+            'Landing Page (/)': {
+                'Interface Load': 'User arrives at main interface with clean, intuitive design',
+                'Options Presented': 'Two primary input methods clearly displayed',
+                'Instructions': 'Clear guidance on supported formats and usage'
+            },
+            'Image Input Methods': {
+                'File Upload': 'Select image file from device (PNG, JPG, JPEG, GIF, BMP)',
+                'Camera Capture': 'Use device camera to take photo in real-time',
+                'Validation': 'Real-time file type and size validation'
+            },
+            'Image Processing Pipeline': {
+                'Upload Validation': 'Image validated (file type, MIME type, actual content)',
+                'AI Processing': 'Image processed by BLIP AI model using deep learning',
+                'Caption Generation': 'Intelligent caption generated using pre-trained model'
+            },
+            'Results Display (/result)': {
+                'Image Display': 'Original uploaded/captured image shown clearly',
+                'AI Caption': 'AI-generated caption displayed prominently',
+                'Edit Option': 'User can edit the generated caption if needed',
+                'User Actions': 'Save, download, or process new image options'
+            },
+            'Save Functionality (/save)': {
+                'Download Option': 'Download image with caption as filename',
+                'Return Navigation': 'Easy return to main page for new upload',
+                'File Management': 'Organized file naming with caption integration'
+            }
+        },
+        'tech_details': {
+            'Backend Framework': 'Flask - Main web framework with Python 3.7+',
+            'AI/ML Engine': 'BLIP Model - Salesforce pre-trained image captioning model',
+            'Deep Learning': 'PyTorch - Deep learning framework for model processing',
+            'Model Management': 'Transformers (Hugging Face) - Model loading and processing',
+            'Image Processing': 'Pillow (PIL) - Image manipulation and format handling',
+            'Production Server': 'Gunicorn - WSGI server for production deployment'
+        },
+        'features': [
+            'File upload and camera capture support',
+            'BLIP AI model for deep learning captioning',
+            'Real-time image processing with PyTorch',
+            'Download image with AI-generated caption filename'
+        ],
+        'tech_stack': ['Flask', 'BLIP Model', 'PyTorch', 'Transformers', 'Pillow'],
+        'github_url': 'https://github.com/r-elopre/AI-Image-Captioning-Tool'
+    }
+    return render_template('image_captioning_detail.html', project=project)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
