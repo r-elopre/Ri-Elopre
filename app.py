@@ -60,6 +60,20 @@ def projects():
             'tech_stack': ['Flask', 'LangChain', 'OpenAI GPT-3.5', 'FAISS', 'PyPDF'],
             'status': 'Live',
             'image': 'data.jpg'
+        },
+        {
+            'title': 'Audio2Summary AI',
+            'description': 'Professional Flask web application that transforms audio files into intelligent summaries using OpenAI\'s Whisper and GPT-3.5 Turbo APIs.',
+            'url': 'https://ri-audio2summary-ai.onrender.com/',
+            'features': [
+                'Audio transcription with OpenAI Whisper',
+                'Intelligent summarization with GPT-3.5 Turbo',
+                'Multi-stage processing pipeline',
+                'Export and copy functionality'
+            ],
+            'tech_stack': ['Flask', 'OpenAI Whisper', 'OpenAI GPT-3.5', 'Audio Processing'],
+            'status': 'Live',
+            'image': 'audio.png'
         }
     ]
     
@@ -192,6 +206,61 @@ def about():
 def contact():
     """Contact page"""
     return render_template('contact.html')
+
+@app.route('/projects/audio2summary')
+def audio2summary_detail():
+    """Detailed page for Audio2Summary AI project"""
+    project = {
+        'title': 'Audio2Summary AI',
+        'description': 'Professional Flask web application that transforms audio files into intelligent summaries using OpenAI\'s Whisper (transcription) and GPT-3.5 Turbo (summarization) APIs.',
+        'image': 'audio.png',
+        'user_flow': {
+            'Phase 1: Initial Interaction': {
+                'Landing': 'User sees professional header with Audio2Summary AI branding',
+                'Call-to-Action': 'Clear upload section with drag-and-drop zone',
+                'Requirements': 'Visible constraints (2 min max, audio formats, 25MB limit)'
+            },
+            'Phase 2: File Selection': {
+                'Multiple Options': 'Drag-and-drop OR click to browse',
+                'Real-time Validation': 'File type and size checking',
+                'Visual Feedback': 'File info display with name, size, remove option',
+                'State Management': 'Upload button enabled only when valid file selected'
+            },
+            'Phase 3: Processing Experience': {
+                'Animated UI': 'Spinner + audio wave visualization',
+                'Progress Tracking': '7-stage progress bar with descriptive text',
+                'Real-time Updates': 'Status messages for each processing stage',
+                'Estimated Timing': 'Smart delays based on actual API processing times'
+            },
+            'Phase 4: Results Consumption': {
+                'Structured Output': 'Transcript, Summary, Action Items sections',
+                'Metadata Display': 'Duration, word count, timestamp',
+                'Copy Functions': 'Individual section copying to clipboard',
+                'Export Options': 'Download complete text report',
+                'Next Actions': 'Process another file OR try again'
+            },
+            'Phase 5: Error Handling': {
+                'Graceful Failures': 'User-friendly error messages',
+                'Recovery Options': 'Try Again button',
+                'State Reset': 'Clean return to upload state'
+            }
+        },
+        'tech_details': {
+            'OpenAI Whisper': 'Audio → Text transcription',
+            'GPT-3.5 Turbo': 'Text → Intelligent summaries',
+            'API Management': 'Timeout handling, retry logic',
+            'Error Handling': 'Rate limiting, quota management'
+        },
+        'features': [
+            'Audio transcription with OpenAI Whisper',
+            'Intelligent summarization with GPT-3.5 Turbo',
+            'Multi-stage processing pipeline',
+            'Export and copy functionality'
+        ],
+        'tech_stack': ['Flask', 'OpenAI Whisper', 'OpenAI GPT-3.5', 'Audio Processing'],
+        'live_url': 'https://ri-audio2summary-ai.onrender.com/'
+    }
+    return render_template('audio2summary_detail.html', project=project)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
