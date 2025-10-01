@@ -6,7 +6,16 @@ app = Flask(__name__)
 CORS(app)
 
 # Configuration
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
+app.config['ENV'] = os.environ.get('FLASK_ENV', 'development')
+
+# Security headers for production
+@app.after_request
+def after_request(response):
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    return response
 
 @app.route('/')
 def home():
@@ -16,8 +25,8 @@ def home():
         'title': 'Aspiring AI Engineer | Full-Stack Developer (Django)',
         'location': 'Rodriguez, Rizal',
         'phone': '+639952013913',
-        'email': 'your-email@example.com',  # You can update this later
-        'github': 'https://github.com/your-username',  # You can update this later
+        'email': 'elopreri528@gmail.com',
+        'github': 'https://github.com/r-elopre',
         'summary': """Versatile and results-oriented professional with strong exposure to Full-Stack Development and AI Engineering. All my projects are meticulously documented to cater to different types of viewers:
 
 For those who want in-depth technical details — each repository contains a comprehensive README outlining architecture, methodology, and implementation steps.
@@ -403,4 +412,6 @@ def image_captioning_detail():
     return render_template('image_captioning_detail.html', project=project)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_ENV', 'development') == 'development'
+    app.run(debug=debug, host='0.0.0.0', port=port)

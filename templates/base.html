@@ -14,50 +14,62 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top d-lg-flex d-none">
         <div class="container">
             <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
                 <i class="fas fa-code me-2"></i>Ri M. Elopre
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('home') }}">
-                            <i class="fas fa-home me-1"></i>Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('certificates') }}">
-                            <i class="fas fa-certificate me-1"></i>Certificates
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('projects') }}">
-                            <i class="fas fa-project-diagram me-1"></i>Projects
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('achievements') }}">
-                            <i class="fas fa-trophy me-1"></i>Achievements
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('about') }}">
-                            <i class="fas fa-user me-1"></i>About
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('contact') }}">
-                            <i class="fas fa-envelope me-1"></i>Contact
-                        </a>
-                    </li>
-                </ul>
+            <div class="navbar-nav ms-auto d-flex flex-row">
+                <a class="nav-link" href="{{ url_for('home') }}">
+                    <i class="fas fa-home me-1"></i>Home
+                </a>
+                <a class="nav-link" href="{{ url_for('certificates') }}">
+                    <i class="fas fa-certificate me-1"></i>Certificates
+                </a>
+                <a class="nav-link" href="{{ url_for('projects') }}">
+                    <i class="fas fa-project-diagram me-1"></i>Projects
+                </a>
+                <a class="nav-link" href="{{ url_for('achievements') }}">
+                    <i class="fas fa-trophy me-1"></i>Achievements
+                </a>
+                <a class="nav-link" href="{{ url_for('about') }}">
+                    <i class="fas fa-user me-1"></i>About
+                </a>
+                <a class="nav-link" href="{{ url_for('contact') }}">
+                    <i class="fas fa-envelope me-1"></i>Contact
+                </a>
             </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="bottom-nav d-lg-none fixed-bottom">
+        <div class="bottom-nav-container">
+            <a href="{{ url_for('home') }}" class="bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="{{ url_for('certificates') }}" class="bottom-nav-item">
+                <i class="fas fa-certificate"></i>
+                <span>Certificates</span>
+            </a>
+            <a href="{{ url_for('projects') }}" class="bottom-nav-item">
+                <i class="fas fa-project-diagram"></i>
+                <span>Projects</span>
+            </a>
+            <a href="{{ url_for('achievements') }}" class="bottom-nav-item">
+                <i class="fas fa-trophy"></i>
+                <span>Achievements</span>
+            </a>
+            <a href="{{ url_for('about') }}" class="bottom-nav-item">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+            <a href="{{ url_for('contact') }}" class="bottom-nav-item">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
         </div>
     </nav>
 

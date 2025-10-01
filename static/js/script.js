@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initializeNavbar();
+    initializeBottomNav();
     initializeAnimations();
     initializeTypingEffect();
     initializeSmoothScrolling();
@@ -32,6 +33,85 @@ function initializeNavbar() {
             navbar.classList.remove('scrolled');
         }
     });
+}
+
+// Bottom Navigation functionality
+function initializeBottomNav() {
+    const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+    const currentPath = window.location.pathname;
+    
+    // Set active state for current page
+    bottomNavItems.forEach(item => {
+        const href = item.getAttribute('href');
+        if (href === currentPath || (currentPath === '/' && href.includes('home'))) {
+            item.classList.add('active');
+        }
+        
+        // Add click animation
+        item.addEventListener('click', function(e) {
+            // Remove active from all items
+            bottomNavItems.forEach(nav => nav.classList.remove('active'));
+            // Add active to clicked item
+            this.classList.add('active');
+            
+            // Add ripple effect
+            createRippleEffect(this, e);
+        });
+        
+        // Add touch feedback
+        item.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.95)';
+        });
+        
+        item.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+}
+
+// Create ripple effect for bottom nav
+function createRippleEffect(element, event) {
+    const ripple = document.createElement('span');
+    const rect = element.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = event.clientX - rect.left - size / 2;
+    const y = event.clientY - rect.top - size / 2;
+    
+    ripple.style.cssText = `
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.3);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        pointer-events: none;
+    `;
+    
+    // Add ripple animation keyframes if not exists
+    if (!document.querySelector('#ripple-keyframes')) {
+        const style = document.createElement('style');
+        style.id = 'ripple-keyframes';
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    element.style.position = 'relative';
+    element.style.overflow = 'hidden';
+    element.appendChild(ripple);
+    
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
 }
 
 // Animation effects

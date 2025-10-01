@@ -405,6 +405,95 @@ footer {
         width: 100%;
         margin: 0.25rem 0;
     }
+
+    /* Mobile layout adjustments */
+    .main-content {
+        padding-bottom: 90px; /* Add space for bottom nav */
+        padding-top: 20px; /* Remove top padding on mobile */
+    }
+
+    /* Adjust home page for mobile */
+    .home-page .main-content {
+        padding-top: 0 !important;
+        padding-bottom: 90px !important;
+    }
+
+    .hero-section {
+        padding-top: 40px !important;
+        min-height: calc(100vh - 90px) !important;
+    }
+}
+
+/* Bottom Navigation Styles */
+.bottom-nav {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1040;
+}
+
+.bottom-nav-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    max-width: 100%;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    padding: 6px 8px;
+    border-radius: 12px;
+    min-width: 0;
+    flex: 1;
+    position: relative;
+}
+
+.bottom-nav-item:hover,
+.bottom-nav-item.active {
+    color: var(--accent-color);
+    background: rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.bottom-nav-item i {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.bottom-nav-item span {
+    font-size: 0.65rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Active state indicator */
+.bottom-nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* Hide bottom nav on larger screens */
+@media (min-width: 992px) {
+    .bottom-nav {
+        display: none !important;
+    }
 }
 
 @media (max-width: 576px) {
