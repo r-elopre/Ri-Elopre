@@ -235,6 +235,16 @@ def contact():
     """Contact page"""
     return render_template('contact.html')
 
+@app.route('/certificates')
+def certificates():
+    """Certificates page"""
+    return render_template('certificates.html')
+
+@app.route('/achievements')
+def achievements():
+    """Achievements page"""
+    return render_template('achievements.html')
+
 @app.route('/projects/audio2summary')
 def audio2summary_detail():
     """Detailed page for Audio2Summary AI project"""

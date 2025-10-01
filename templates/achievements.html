@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}Achievements - Ri M. Elopre{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 fw-bold text-primary">
+                    <i class="fas fa-trophy me-3"></i>Achievements
+                </h1>
+                <p class="lead text-muted">Notable accomplishments and milestones</p>
+            </div>
+        </div>
+
+        <!-- Achievements Grid -->
+        <div class="row g-4">
+            <!-- Current Achievement: AI Projects -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="achievement-icon mb-3">
+                            <i class="fas fa-rocket fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">5 AI Projects Deployed</h5>
+                        <p class="card-text text-muted">
+                            Successfully developed and deployed 5 AI-powered applications using 
+                            cutting-edge technologies including OpenAI APIs, BLIP model, and deep learning.
+                        </p>
+                        <span class="badge bg-success">Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Achievement: Portfolio -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="achievement-icon mb-3">
+                            <i class="fas fa-globe fa-3x text-info"></i>
+                        </div>
+                        <h5 class="card-title">Professional Portfolio</h5>
+                        <p class="card-text text-muted">
+                            Built and launched a comprehensive portfolio website showcasing 
+                            AI projects with modern web technologies and responsive design.
+                        </p>
+                        <span class="badge bg-success">Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Achievements placeholder -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="achievement-icon mb-3">
+                            <i class="fas fa-medal fa-3x text-warning"></i>
+                        </div>
+                        <h5 class="card-title">Professional Recognition</h5>
+                        <p class="card-text text-muted">
+                            Working towards industry recognition, awards, and professional 
+                            acknowledgments in AI and software development.
+                        </p>
+                        <span class="badge bg-secondary">In Progress</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="achievement-icon mb-3">
+                            <i class="fas fa-users fa-3x text-success"></i>
+                        </div>
+                        <h5 class="card-title">Community Contributions</h5>
+                        <p class="card-text text-muted">
+                            Planning to contribute to open-source projects and share knowledge 
+                            with the developer community through tutorials and code sharing.
+                        </p>
+                        <span class="badge bg-secondary">Planned</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Section -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card border-0 bg-primary text-white">
+                    <div class="card-body py-4">
+                        <h3 class="text-center mb-4">
+                            <i class="fas fa-chart-line me-2"></i>Key Metrics
+                        </h3>
+                        <div class="row text-center">
+                            <div class="col-md-3">
+                                <div class="metric-item">
+                                    <h2 class="fw-bold">5</h2>
+                                    <p class="mb-0">AI Projects</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-item">
+                                    <h2 class="fw-bold">4</h2>
+                                    <p class="mb-0">Live Demos</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-item">
+                                    <h2 class="fw-bold">100%</h2>
+                                    <p class="mb-0">GitHub Backed</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-item">
+                                    <h2 class="fw-bold">2025</h2>
+                                    <p class="mb-0">Portfolio Launch</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="row mt-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="card border-0 bg-light">
+                    <div class="card-body py-4">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="fas fa-target me-2"></i>Future Goals
+                        </h4>
+                        <p class="mb-4">
+                            Continuously working towards new achievements in AI engineering, 
+                            software development, and professional growth.
+                        </p>
+                        <a href="{{ url_for('projects') }}" class="btn btn-primary me-2">
+                            <i class="fas fa-project-diagram me-2"></i>View Projects
+                        </a>
+                        <a href="{{ url_for('contact') }}" class="btn btn-outline-primary">
+                            <i class="fas fa-envelope me-2"></i>Connect
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,316 @@
+{% extends "base.html" %}
+
+{% block title %}Certificates - Ri M. Elopre{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 fw-bold text-white">
+                    <i class="fas fa-certificate me-3"></i>Certificates
+                </h1>
+                <p class="lead text-light">Professional certifications and learning achievements</p>
+            </div>
+        </div>
+
+        <!-- Program Certificates Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="h3 fw-bold text-white mb-4">
+                    <i class="fas fa-graduation-cap me-2"></i>Program Certificates
+                </h2>
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body text-center p-4">
+                        <div class="certificate-icon mb-3">
+                            <i class="fas fa-clock fa-3x text-muted"></i>
+                        </div>
+                        <h5 class="card-title text-muted">No Program Certificates Yet</h5>
+                        <p class="card-text text-muted">
+                            Currently working towards completing degree programs and professional certification programs.
+                        </p>
+                        <span class="badge bg-secondary">In Progress</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Online Course Certificates Section -->
+        <div class="row">
+            <div class="col-12">
+                <h2 class="h3 fw-bold text-white mb-4">
+                    <i class="fas fa-laptop-code me-2"></i>Online Course Certificates
+                </h2>
+                
+                <!-- IBM Certificate -->
+                <div class="card border-0 shadow-lg mb-4">
+                    <div class="row g-0">
+                        <div class="col-lg-4">
+                            <div class="certificate-image p-3">
+                                <img src="{{ url_for('static', filename='images/cert1.png') }}" 
+                                     alt="IBM Certificate" 
+                                     class="img-fluid rounded"
+                                     style="width: 100%; height: auto; object-fit: contain;">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <h4 class="card-title text-primary fw-bold">
+                                            Building Generative AI-Powered Applications with Python
+                                        </h4>
+                                        <h6 class="text-muted mb-2">
+                                            <i class="fab fa-ibm me-2"></i>IBM Company through Coursera
+                                        </h6>
+                                    </div>
+                                    <span class="badge bg-success fs-6">Completed</span>
+                                </div>
+                                
+                                <div class="certificate-details mb-4">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <strong class="text-primary">Credential ID:</strong><br>
+                                            <code class="bg-light p-1 rounded">7TC8GA3G0WRG</code>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong class="text-primary">Verification:</strong><br>
+                                            <a href="https://www.coursera.org/account/accomplishments/records/7TC8GA3G0WRG" 
+                                               target="_blank" class="btn btn-outline-primary btn-sm">
+                                                <i class="fas fa-external-link-alt me-1"></i>Verify Certificate
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="projects-created mb-3">
+                                    <h6 class="text-primary fw-bold mb-3">
+                                        <i class="fas fa-rocket me-2"></i>Live Projects Created During This Course:
+                                    </h6>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="project-item bg-light p-2 rounded">
+                                                <i class="fas fa-user-tie text-primary me-2"></i>
+                                                <strong>AI Career Coach</strong>
+                                                <span class="badge bg-success ms-2">Live</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="project-item bg-light p-2 rounded">
+                                                <i class="fas fa-headphones text-primary me-2"></i>
+                                                <strong>Audio2Summary AI</strong>
+                                                <span class="badge bg-success ms-2">Live</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="project-item bg-light p-2 rounded">
+                                                <i class="fas fa-microphone text-primary me-2"></i>
+                                                <strong>AiSpeak</strong>
+                                                <span class="badge bg-success ms-2">Live</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="project-item bg-light p-2 rounded">
+                                                <i class="fas fa-image text-primary me-2"></i>
+                                                <strong>AI Image Captioning Tool</strong>
+                                                <span class="badge bg-dark ms-2">GitHub</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Harvard CS50 Certificate -->
+                <div class="card border-0 shadow-lg mb-4">
+                    <div class="row g-0">
+                        <div class="col-lg-4">
+                            <div class="certificate-image p-3">
+                                <img src="{{ url_for('static', filename='images/cert2.png') }}" 
+                                     alt="Harvard CS50 Certificate" 
+                                     class="img-fluid rounded"
+                                     style="width: 100%; height: auto; object-fit: contain;">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <h4 class="card-title text-primary fw-bold">
+                                            CS50's Introduction to Artificial Intelligence with Python
+                                        </h4>
+                                        <h6 class="text-muted mb-2">
+                                            <i class="fas fa-university me-2"></i>Harvard University
+                                        </h6>
+                                    </div>
+                                    <span class="badge bg-success fs-6">Completed</span>
+                                </div>
+                                
+                                <div class="certificate-details mb-4">
+                                    <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <strong class="text-primary">Verification:</strong><br>
+                                            <a href="https://certificates.cs50.io/e80ef6bf-20d8-49ac-94d3-8160a0ff9cf9.pdf?size=letter" 
+                                               target="_blank" class="btn btn-outline-primary btn-sm">
+                                                <i class="fas fa-external-link-alt me-1"></i>View Certificate
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="skills-acquired mb-3">
+                                    <h6 class="text-primary fw-bold mb-3">
+                                        <i class="fas fa-brain me-2"></i>Skills Acquired:
+                                    </h6>
+                                    <div class="row g-2">
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-robot text-primary me-2"></i>
+                                                <strong>Artificial Intelligence (AI)</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-cogs text-primary me-2"></i>
+                                                <strong>Machine Learning</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-network-wired text-primary me-2"></i>
+                                                <strong>Deep Learning</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-share-alt text-primary me-2"></i>
+                                                <strong>Neural Networks</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-language text-primary me-2"></i>
+                                                <strong>Natural Language Processing (NLP)</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Harvard CS50x Certificate -->
+                <div class="card border-0 shadow-lg mb-4">
+                    <div class="row g-0">
+                        <div class="col-lg-4">
+                            <div class="certificate-image p-3">
+                                <img src="{{ url_for('static', filename='images/cert3.png') }}" 
+                                     alt="Harvard CS50x Certificate" 
+                                     class="img-fluid rounded"
+                                     style="width: 100%; height: auto; object-fit: contain;">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <h4 class="card-title text-primary fw-bold">
+                                            CS50x: Introduction to Computer Science
+                                        </h4>
+                                        <h6 class="text-muted mb-2">
+                                            <i class="fas fa-university me-2"></i>Harvard University
+                                        </h6>
+                                        <p class="text-muted small mb-0">
+                                            <i class="fas fa-calendar me-1"></i>Awarded from Cambridge, Massachusetts, in the year two thousand twenty-five.
+                                        </p>
+                                    </div>
+                                    <span class="badge bg-success fs-6">Completed</span>
+                                </div>
+                                
+                                <div class="certificate-details mb-4">
+                                    <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <strong class="text-primary">Verification:</strong><br>
+                                            <a href="https://cs50.harvard.edu/certificates/ea16381a-eb41-4462-9f26-bdc87e499a04" 
+                                               target="_blank" class="btn btn-outline-primary btn-sm">
+                                                <i class="fas fa-external-link-alt me-1"></i>View Certificate
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <small class="text-muted">
+                                                <i class="fas fa-info-circle me-1"></i>
+                                                Certificate awarded on completion of CS50x, including ten problem sets and one final project.
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="skills-acquired mb-3">
+                                    <h6 class="text-primary fw-bold mb-3">
+                                        <i class="fas fa-laptop-code me-2"></i>Skills Acquired:
+                                    </h6>
+                                    <div class="row g-2">
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-puzzle-piece text-primary me-2"></i>
+                                                <strong>Problem Solving</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fab fa-python text-primary me-2"></i>
+                                                <strong>Python (Programming Language)</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-database text-primary me-2"></i>
+                                                <strong>SQL</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-code text-primary me-2"></i>
+                                                <strong>Algorithms</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-project-diagram text-primary me-2"></i>
+                                                <strong>Data Structures</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-globe text-primary me-2"></i>
+                                                <strong>Web Development</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="skill-item bg-light p-2 rounded">
+                                                <i class="fas fa-graduation-cap text-primary me-2"></i>
+                                                <strong>Computer Science Education</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</section>
+{% endblock %}
