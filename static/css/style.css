@@ -24,6 +24,15 @@ body {
     padding-top: 76px; /* Add top padding for fixed navbar */
 }
 
+/* Specific fix for certificates page with dark background */
+.certificates-page .main-content {
+    padding-top: 0; /* Remove padding for certificates page */
+}
+
+.certificates-page .main-content > section {
+    padding-top: 120px !important; /* Ensure proper navbar clearance */
+}
+
 /* Remove padding for home page with hero section */
 .home-page .main-content {
     padding-top: 0 !important;
