@@ -33,6 +33,15 @@ body {
     padding-top: 120px !important; /* Ensure proper navbar clearance */
 }
 
+/* Specific fix for achievements page with dark background */
+.achievements-page .main-content {
+    padding-top: 0; /* Remove padding for achievements page */
+}
+
+.achievements-page .main-content > section {
+    padding-top: 120px !important; /* Ensure proper navbar clearance */
+}
+
 /* Remove padding for home page with hero section */
 .home-page .main-content {
     padding-top: 0 !important;

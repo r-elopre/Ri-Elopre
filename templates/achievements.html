@@ -10,141 +10,165 @@
                 <h1 class="display-4 fw-bold text-primary">
                     <i class="fas fa-trophy me-3"></i>Achievements
                 </h1>
-                <p class="lead text-muted">Notable accomplishments and milestones</p>
+                <p class="lead text-muted">Notable accomplishments and competition rankings</p>
             </div>
         </div>
 
-        <!-- Achievements Grid -->
-        <div class="row g-4">
-            <!-- Current Achievement: AI Projects -->
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="achievement-icon mb-3">
-                            <i class="fas fa-rocket fa-3x text-primary"></i>
-                        </div>
-                        <h5 class="card-title">5 AI Projects Deployed</h5>
-                        <p class="card-text text-muted">
-                            Successfully developed and deployed 5 AI-powered applications using 
-                            cutting-edge technologies including OpenAI APIs, BLIP model, and deep learning.
-                        </p>
-                        <span class="badge bg-success">Completed</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Current Achievement: Portfolio -->
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="achievement-icon mb-3">
-                            <i class="fas fa-globe fa-3x text-info"></i>
-                        </div>
-                        <h5 class="card-title">Professional Portfolio</h5>
-                        <p class="card-text text-muted">
-                            Built and launched a comprehensive portfolio website showcasing 
-                            AI projects with modern web technologies and responsive design.
-                        </p>
-                        <span class="badge bg-success">Completed</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Future Achievements placeholder -->
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="achievement-icon mb-3">
-                            <i class="fas fa-medal fa-3x text-warning"></i>
-                        </div>
-                        <h5 class="card-title">Professional Recognition</h5>
-                        <p class="card-text text-muted">
-                            Working towards industry recognition, awards, and professional 
-                            acknowledgments in AI and software development.
-                        </p>
-                        <span class="badge bg-secondary">In Progress</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="achievement-icon mb-3">
-                            <i class="fas fa-users fa-3x text-success"></i>
-                        </div>
-                        <h5 class="card-title">Community Contributions</h5>
-                        <p class="card-text text-muted">
-                            Planning to contribute to open-source projects and share knowledge 
-                            with the developer community through tutorials and code sharing.
-                        </p>
-                        <span class="badge bg-secondary">Planned</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Metrics Section -->
-        <div class="row mt-5">
+        <!-- Competition Achievements Section -->
+        <div class="row">
             <div class="col-12">
-                <div class="card border-0 bg-primary text-white">
-                    <div class="card-body py-4">
-                        <h3 class="text-center mb-4">
-                            <i class="fas fa-chart-line me-2"></i>Key Metrics
-                        </h3>
-                        <div class="row text-center">
-                            <div class="col-md-3">
-                                <div class="metric-item">
-                                    <h2 class="fw-bold">5</h2>
-                                    <p class="mb-0">AI Projects</p>
-                                </div>
+                <h2 class="h3 fw-bold text-dark mb-4">
+                    <i class="fas fa-medal me-2"></i>Competition Achievements
+                </h2>
+                
+                <!-- Kaggle Titanic Achievement -->
+                <div class="card border-0 shadow-lg mb-4" style="border: 2px solid #d1d5db !important; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;">
+                    <div class="row g-0">
+                        <div class="col-lg-4">
+                            <div class="achievement-image p-4">
+                                <img src="{{ url_for('static', filename='images/achieve1.png') }}" 
+                                     alt="Kaggle Titanic Competition Achievement" 
+                                     class="img-fluid rounded clickable-image"
+                                     style="width: 100%; height: auto; object-fit: contain; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); cursor: pointer;"
+                                     data-bs-toggle="modal" 
+                                     data-bs-target="#imageModal"
+                                     onclick="showImageModal(this.src, this.alt)">
                             </div>
-                            <div class="col-md-3">
-                                <div class="metric-item">
-                                    <h2 class="fw-bold">4</h2>
-                                    <p class="mb-0">Live Demos</p>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <h4 class="card-title text-primary fw-bold">
+                                            Titanic - Machine Learning from Disaster
+                                        </h4>
+                                        <h6 class="text-muted mb-2">
+                                            <i class="fab fa-kaggle me-2"></i>Kaggle Competition
+                                        </h6>
+                                        <p class="text-muted small mb-0">
+                                            <i class="fas fa-calendar me-1"></i>Achieved in September 2025
+                                        </p>
+                                    </div>
+                                    <span class="badge bg-success fs-6">Completed</span>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="metric-item">
-                                    <h2 class="fw-bold">100%</h2>
-                                    <p class="mb-0">GitHub Backed</p>
+                                
+                                <div class="achievement-details mb-4">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <div class="metric-card bg-light p-3 rounded border" style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border-color: #d1d5db !important;">
+                                                <div class="text-center">
+                                                    <h3 class="text-primary fw-bold mb-1">0.77511</h3>
+                                                    <p class="text-muted mb-0">Final Score</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="metric-card bg-light p-3 rounded border" style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border-color: #d1d5db !important;">
+                                                <div class="text-center">
+                                                    <h3 class="text-success fw-bold mb-1">#6918</h3>
+                                                    <p class="text-muted mb-0">Global Rank</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <div class="metric-card bg-primary text-white p-3 rounded" style="box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                                                <div class="text-center">
+                                                    <h4 class="fw-bold mb-1">Top 50.6%</h4>
+                                                    <p class="mb-0">Out of 13,667 participants</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <strong class="text-primary">Leaderboard:</strong><br>
+                                            <a href="https://www.kaggle.com/competitions/titanic/leaderboard#" 
+                                               target="_blank" class="btn btn-outline-primary btn-sm">
+                                                <i class="fab fa-kaggle me-1"></i>View on Kaggle (Search "rimelopre")
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="metric-item">
-                                    <h2 class="fw-bold">2025</h2>
-                                    <p class="mb-0">Portfolio Launch</p>
+
+                                <div class="skills-demonstrated mb-3">
+                                    <h6 class="text-primary fw-bold mb-3">
+                                        <i class="fas fa-brain me-2"></i>Skills Demonstrated:
+                                    </h6>
+                                    <div class="row g-2">
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded border" style="box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12); border-color: #d1d5db !important;">
+                                                <i class="fas fa-cogs text-primary me-2"></i>
+                                                <strong>Machine Learning</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded border" style="box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12); border-color: #d1d5db !important;">
+                                                <i class="fas fa-chart-bar text-primary me-2"></i>
+                                                <strong>Data Analysis</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded border" style="box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12); border-color: #d1d5db !important;">
+                                                <i class="fab fa-python text-primary me-2"></i>
+                                                <strong>Python Programming</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="skill-item bg-light p-2 rounded border" style="box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12); border-color: #d1d5db !important;">
+                                                <i class="fas fa-project-diagram text-primary me-2"></i>
+                                                <strong>Feature Engineering</strong>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="row mt-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <div class="card border-0 bg-light">
-                    <div class="card-body py-4">
-                        <h4 class="fw-bold text-primary mb-3">
-                            <i class="fas fa-target me-2"></i>Future Goals
-                        </h4>
-                        <p class="mb-4">
-                            Continuously working towards new achievements in AI engineering, 
-                            software development, and professional growth.
-                        </p>
-                        <a href="{{ url_for('projects') }}" class="btn btn-primary me-2">
-                            <i class="fas fa-project-diagram me-2"></i>View Projects
-                        </a>
-                        <a href="{{ url_for('contact') }}" class="btn btn-outline-primary">
-                            <i class="fas fa-envelope me-2"></i>Connect
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-header border-0 position-absolute top-0 end-0 z-index-1050" style="z-index: 1050;">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0 text-center">
+                <img id="modalImage" src="" alt="" class="img-fluid rounded shadow-lg" style="max-height: 90vh; max-width: 90vw; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function showImageModal(imageSrc, imageAlt) {
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = imageSrc;
+    modalImage.alt = imageAlt;
+}
+
+// Add custom styling for the modal backdrop
+document.addEventListener('DOMContentLoaded', function() {
+    const imageModal = document.getElementById('imageModal');
+    
+    imageModal.addEventListener('show.bs.modal', function () {
+        // Add blur effect to the body when modal opens
+        document.body.style.overflow = 'hidden';
+        document.querySelector('.modal-backdrop').style.backdropFilter = 'blur(8px)';
+        document.querySelector('.modal-backdrop').style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    });
+    
+    imageModal.addEventListener('hidden.bs.modal', function () {
+        // Remove blur effect when modal closes
+        document.body.style.overflow = 'auto';
+    });
+});
+</script>
+
 {% endblock %}
