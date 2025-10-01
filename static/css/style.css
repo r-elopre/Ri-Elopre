@@ -11,16 +11,37 @@
     --transition: all 0.3s ease;
 }
 
+/* Reset margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Flexbox layout for full page height */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 /* Global Styles */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    padding-top: 0; /* Remove padding to eliminate gap */
+    margin: 0;
+    padding: 0;
 }
 
 .main-content {
-    min-height: calc(100vh - 200px);
+    flex: 1; /* Take up remaining space */
     padding-top: 76px; /* Add top padding for fixed navbar */
 }
 
@@ -42,24 +63,11 @@ body {
     padding-top: 120px !important; /* Ensure proper navbar clearance */
 }
 
-/* Remove padding for home page with hero section */
+/* Clean home page layout - no padding or margins on main content */
 .home-page .main-content {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-/* Remove footer margin on home page */
-.home-page footer {
-    margin-top: 0 !important;
-}
-
-/* Hero section on home page should not have extra padding */
-.main-content .hero-section {
-    margin-top: -76px !important; /* Offset the main-content padding for full screen hero */
-    padding-top: 76px !important; /* Keep navbar clearance */
-    min-height: calc(100vh - 76px) !important; /* Take full viewport minus navbar height */
-    margin-bottom: 0 !important; /* Remove any bottom margin */
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
 }
 
 /* Typography */
@@ -117,9 +125,9 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     position: relative;
     overflow: hidden;
-    padding-top: 76px !important; /* Add padding to account for fixed navbar - important to override bootstrap */
-    padding-bottom: 0 !important; /* Remove any bottom padding */
-    margin-bottom: 0 !important; /* Remove bottom margin */
+    padding-top: 76px; /* Account for fixed navbar */
+    padding-bottom: 0;
+    margin: 0;
     min-height: 100vh; /* Full viewport height */
 }
 
@@ -359,7 +367,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer */
 footer {
-    margin-top: auto;
+    margin-top: 0;
 }
 
 .social-links a {
@@ -376,6 +384,48 @@ footer {
 @media (max-width: 768px) {
     .hero-section {
         text-align: center;
+    }
+    
+    /* Override Bootstrap classes for mobile to reduce gap */
+    .hero-section .row.min-vh-100 {
+        min-height: auto !important; /* Remove full viewport height constraint */
+    }
+    
+    .hero-section .row.align-items-center {
+        align-items: flex-start !important; /* Align to top instead of center */
+        padding-top: 1rem; /* Reduced top padding */
+        padding-bottom: 1rem; /* Reduced bottom padding */
+    }
+    
+    .hero-section .col-lg-6:first-child {
+        margin-bottom: 1.5rem; /* Gap between text and image */
+    }
+    
+    /* Reduce hero content sizes for mobile */
+    .hero-section .display-4 {
+        font-size: 2.2rem !important; /* Increased main heading size */
+        margin-bottom: 1.2rem !important;
+    }
+    
+    .hero-section .h3 {
+        font-size: 1.3rem !important; /* Increased subtitle size */
+        margin-bottom: 1.2rem !important;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.1rem !important; /* Increased description text size */
+        margin-bottom: 1.2rem !important;
+    }
+    
+    /* Increase profile image size for mobile */
+    .hero-section .profile-image img {
+        width: 250px !important; /* Larger image width */
+        height: 250px !important; /* Larger image height */
+    }
+    
+    /* Reduce hero content padding */
+    .hero-content {
+        padding: 0 1rem;
     }
     
     .hero-buttons {
@@ -414,13 +464,19 @@ footer {
 
     /* Adjust home page for mobile */
     .home-page .main-content {
-        padding-top: 0 !important;
-        padding-bottom: 90px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        padding-bottom: 90px; /* Space for bottom nav */
+        display: flex;
+        flex-direction: column;
     }
 
     .hero-section {
-        padding-top: 40px !important;
-        min-height: calc(100vh - 90px) !important;
+        padding-top: 15px; /* Further reduced padding on mobile */
+        padding-bottom: 15px; /* Add bottom padding */
+        flex: 1; /* Take remaining space in main content */
+        display: flex;
+        align-items: flex-start; /* Keep content at top */
     }
 }
 
